@@ -40,8 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Script du formulaire de contact
-    const contactForm = document.getElementById("contact-form");
+    const contactForm = document.getElementById("Formulaire de contact");
     if (contactForm) {
         contactForm.addEventListener("submit", function(e) {
             e.preventDefault();
