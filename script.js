@@ -73,13 +73,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  (function() {
+  (function () {
     emailjs.init("NWJA1HRiNVHeO0ag0");
   })();
 
   window.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("contact-form");
-    
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
 
@@ -93,5 +93,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
   });
+
 
 
