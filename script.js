@@ -70,3 +70,28 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+
+
+  (function() {
+    emailjs.init("NWJA1HRiNVHeO0ag0");
+  })();
+
+  window.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("contact-form");
+    
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      emailjs.sendForm("service_9khv6i7", "template_i3mujaf", form)
+        .then(() => {
+          alert("Message envoyé avec succès !");
+          form.reset();
+        }, (error) => {
+          alert("Erreur lors de l'envoi. Veuillez réessayer.");
+          console.log(error);
+        });
+    });
+  });
+
+
