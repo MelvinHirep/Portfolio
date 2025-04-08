@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      emailjs.sendForm("service_9khv6i7", "template_i3mujaf", form)
+      emailjs.sendForm("service 9khv6i7", "template-i3mujaf", form)
         .then(() => {
           alert("Message envoyé avec succès !");
           form.reset();
