@@ -110,16 +110,16 @@
         <div class="container mx-auto px-4 max-w-xl">
             <h2 class="text-4xl font-bold mb-6 text-center">Me contacter</h2>
             <div id="form-message" class="hidden mb-4 p-4 rounded-lg text-center"></div>
+
             <form id="contact-form" class="space-y-6">
                 <input type="text" name="name" placeholder="Nom" required class="w-full p-3 rounded bg-gray-800 text-white border border-gray-700">
                 <input type="email" name="email" placeholder="Adresse email" required class="w-full p-3 rounded bg-gray-800 text-white border border-gray-700">
                 <textarea name="message" rows="5" placeholder="Votre message" required class="w-full p-3 rounded bg-gray-800 text-white border border-gray-700"></textarea>
                 <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-lg">Envoyer</button>
               </form>
-              
-            
-        </div>
-    </section>
+            </div>
+          </section>
+   
 
     <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center hidden">
         <div class="relative w-3/4 max-w-4xl">
@@ -132,9 +132,10 @@
             <button class="absolute top-2 right-2 bg-red-500 text-white px-4 py-2 rounded-lg" onclick="closeVideo()">X</button>
         </div>
     </div>
-
-    <script src="script.js"></script>
+    
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="script.js"></script>
+   
 
 </body>
 </html>

@@ -71,28 +71,26 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-
-
-  (function () {
-    emailjs.init("NWJA1HRiNVHeO0ag0");
-  })();
-
-  window.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("contact-form");
-
-    form.addEventListener("submit", function (e) {
+document.addEventListener("DOMContentLoaded", function () {
+    // Initialisation d'EmailJS
+    emailjs.init("NWJA1HRiNVHeO0ag0"); // Ta clé publique EmailJS
+  
+    const contactForm = document.getElementById("contact-form");
+    const formMessage = document.getElementById("form-message");
+  
+    contactForm.addEventListener("submit", function (e) {
       e.preventDefault();
-
-      emailjs.sendForm("service 9khv6i7", "template-i3mujaf", form)
-        .then(() => {
-          alert("Message envoyé avec succès !");
-          form.reset();
-        }, (error) => {
-          alert("Erreur lors de l'envoi. Veuillez réessayer.");
-          console.log(error);
+  
+      emailjs.sendForm("service_9khv6i7", "template_i3mujaf", this)
+        .then(function () {
+          formMessage.textContent = "Message envoyé avec succès !";
+          formMessage.className = "block mb-4 p-4 rounded-lg text-center bg-green-500 text-white";
+          contactForm.reset();
+        }, function (error) {
+          formMessage.textContent = "Erreur lors de l'envoi : " + error.text;
+          formMessage.className = "block mb-4 p-4 rounded-lg text-center bg-red-500 text-white";
         });
     });
   });
-
-
+  
 
