@@ -69,14 +69,4 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Menu burger
-    const burgerBtn = document.getElementById("burgerBtn");
-    const navbarMenu = document.getElementById("navbarMenu");
-
-    if (burgerBtn && navbarMenu) {
-        burgerBtn.addEventListener("click", () => {
-            navbarMenu.classList.toggle("hidden");
-            navbarMenu.classList.toggle("block");
-        });
-    }
 });
