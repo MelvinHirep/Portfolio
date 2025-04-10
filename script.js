@@ -49,7 +49,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if (contactForm) {
         contactForm.addEventListener("submit", function (e) {
             e.preventDefault();
-
+            
+            const now = new Date().toLocaleString("fr-FR", {
+                dateStyle: "full",
+                timeStyle: "short",
+              });
+              document.getElementById("email-time").value = now;
+              
             emailjs.sendForm("service_9khv6i7", "template_i3mujaf", this)
             .then(function () {
                 formMessage.textContent = "Message envoyé avec succès !";
