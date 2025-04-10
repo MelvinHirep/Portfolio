@@ -51,11 +51,13 @@ document.addEventListener("DOMContentLoaded", function () {
             e.preventDefault();
 
             emailjs.sendForm("service_9khv6i7", "template_i3mujaf", this)
-                .then(function () {
-                    formMessage.textContent = "Message envoyé avec succès !";
-                    formMessage.className = "block mb-4 p-4 rounded-lg text-center bg-green-500 text-white";
-                    contactForm.reset();
-                }, function (error) {
+            .then(function () {
+                formMessage.textContent = "Message envoyé avec succès !";
+                formMessage.className = "block mb-4 p-4 rounded-lg text-center bg-green-500 text-white";
+                contactForm.reset();
+                contactForm.querySelector("textarea[name='message']").focus();
+            }, function (error) {
+            
                     formMessage.textContent = "Erreur lors de l'envoi : " + error.text;
                     formMessage.className = "block mb-4 p-4 rounded-lg text-center bg-red-500 text-white";
                 });
