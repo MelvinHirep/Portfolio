@@ -17,6 +17,7 @@ function closeVideo() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+    // Animation des projets au scroll
     const projects = document.querySelectorAll('.project-card');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry, index) => {
@@ -29,10 +30,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }, { threshold: 0.2 });
 
-    projects.forEach(project => {
-        observer.observe(project);
-    });
+    projects.forEach(project => observer.observe(project));
 
+    // Lecture vidéo depuis image
     document.querySelectorAll(".project-card img").forEach(img => {
         img.addEventListener("click", () => {
             const videoSrc = img.dataset.video;
@@ -40,57 +40,25 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    const contactForm = document.getElementById("contact form");
-    if (contactForm) {
-        contactForm.addEventListener("submit", function(e) {
-            e.preventDefault();
-            const formData = new FormData(contactForm);
-            const messageBox = document.getElementById("form-message");
+    // === EMAILJS ===
+    emailjs.init("NWJA1HRiNVHeO0ag0"); // Clé publique EmailJS
 
-            fetch(contactForm.action, {
-                method: "POST",
-                body: formData
-            })
-            .then(response => response.text())
-            .then(data => {
-                messageBox.classList.remove("hidden", "bg-red-500", "bg-green-500");
-                if (data.includes("envoyé")) {
-                    messageBox.classList.add("bg-green-500", "text-white");
-                } else {
-                    messageBox.classList.add("bg-red-500", "text-white");
-                }
-                messageBox.textContent = data;
-                contactForm.reset();
-            })
-            .catch(() => {
-                messageBox.classList.remove("hidden");
-                messageBox.classList.add("bg-red-500", "text-white");
-                messageBox.textContent = "Erreur lors de l'envoi du message.";
-            });
+    const contactForm = document.getElementById("contact-form");
+    const formMessage = document.getElementById("form-message");
+
+    if (contactForm) {
+        contactForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            emailjs.sendForm("service_9khv6i7", "template_i3mujaf", this)
+                .then(function () {
+                    formMessage.textContent = "Message envoyé avec succès !";
+                    formMessage.className = "block mb-4 p-4 rounded-lg text-center bg-green-500 text-white";
+                    contactForm.reset();
+                }, function (error) {
+                    formMessage.textContent = "Erreur lors de l'envoi : " + error.text;
+                    formMessage.className = "block mb-4 p-4 rounded-lg text-center bg-red-500 text-white";
+                });
         });
     }
 });
-
-document.addEventListener("DOMContentLoaded", function () {
-    // Initialisation d'EmailJS
-    emailjs.init("NWJA1HRiNVHeO0ag0"); // Ta clé publique EmailJS
-  
-    const contactForm = document.getElementById("contact-form");
-    const formMessage = document.getElementById("form-message");
-  
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-  
-      emailjs.sendForm("service_9khv6i7", "template_i3mujaf", this)
-        .then(function () {
-          formMessage.textContent = "Message envoyé avec succès !";
-          formMessage.className = "block mb-4 p-4 rounded-lg text-center bg-green-500 text-white";
-          contactForm.reset();
-        }, function (error) {
-          formMessage.textContent = "Erreur lors de l'envoi : " + error.text;
-          formMessage.className = "block mb-4 p-4 rounded-lg text-center bg-red-500 text-white";
-        });
-    });
-  });
-  
-
