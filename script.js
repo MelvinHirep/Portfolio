@@ -17,7 +17,6 @@ function closeVideo() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Animation des projets au scroll
     const projects = document.querySelectorAll('.project-card');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry, index) => {
@@ -32,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     projects.forEach(project => observer.observe(project));
 
-    // Lecture vidéo depuis image
     document.querySelectorAll(".project-card img").forEach(img => {
         img.addEventListener("click", () => {
             const videoSrc = img.dataset.video;
@@ -40,8 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // === EMAILJS ===
-    emailjs.init("NWJA1HRiNVHeO0ag0"); // Clé publique EmailJS
+    emailjs.init("NWJA1HRiNVHeO0ag0");
 
     const contactForm = document.getElementById("contact-form");
     const formMessage = document.getElementById("form-message");
@@ -49,21 +46,23 @@ document.addEventListener("DOMContentLoaded", function () {
     if (contactForm) {
         contactForm.addEventListener("submit", function (e) {
             e.preventDefault();
-            
+
             const now = new Date().toLocaleString("fr-FR", {
                 dateStyle: "full",
                 timeStyle: "short",
-              });
-              document.getElementById("email-time").value = now;
-              
+            });
+            document.getElementById("email-time").value = now;
+
             emailjs.sendForm("service_9khv6i7", "template_i3mujaf", this)
-            .then(function () {
-                formMessage.textContent = "Message envoyé avec succès !";
-                formMessage.className = "block mb-4 p-4 rounded-lg text-center bg-green-500 text-white";
-                contactForm.reset();
-                contactForm.querySelector("textarea[name='message']").focus();
-            }, function (error) {
-            
+                .then(function () {
+                    formMessage.textContent = "Message envoyé avec succès !";
+                    formMessage.className = "block mb-4 p-4 rounded-lg text-center bg-green-500 text-white";
+                    contactForm.reset();
+
+                    const textarea = contactForm.querySelector("textarea[name='message']");
+                    textarea.focus();
+                    textarea.setSelectionRange(0, 0);
+                }, function (error) {
                     formMessage.textContent = "Erreur lors de l'envoi : " + error.text;
                     formMessage.className = "block mb-4 p-4 rounded-lg text-center bg-red-500 text-white";
                 });
