@@ -30,6 +30,13 @@
   </div>
 </header>
 
+
+<video autoplay muted loop playsinline id="bg-video">
+  <source src="assets/98476-649310698_small.mp4" type="video/webm">
+  Votre navigateur ne supporte pas la vidéo HTML5.
+</video>
+
+
 <main class="relative flex flex-col items-center justify-center h-screen text-center">
   <div class="absolute top-16 left-4 md:left-10 text-left w-64 text-white space-y-6 text-lg leading-relaxed">
     <h2 class="text-3xl font-bold">Melvin Hirep</h2>
@@ -40,7 +47,7 @@
       14 mois – 3 semaines en entreprise<br>
       1 semaine en formation
     </p>
-    <div class="flex flex-col items-center space-y-16 text-4xl w-full" style="margin-top: 10rem;">
+    <div class="flex flex-col items-center space-y-16 text-4xl w-full" style="margin-top: 4rem;">
       <a href="assets/CV-Melvin-HIREP-pdf.pdf" download target="_blank" class="relative inline-block">
         <div class="w-12 h-12 bg-white text-black rounded-full flex items-center justify-center text-lg font-bold shadow-md">CV</div>
       </a>
@@ -50,14 +57,28 @@
       <a href="https://github.com/MelvinHirep" target="_blank" class="text-white hover:text-blue-400">
         <i class="fab fa-github"></i>
       </a>
+
+      <a href="https://mail.google.com/mail/?view=cm&to=melvinhirep@gmail.com" 
+      target="_blank" 
+      class="text-white hover:text-blue-400">
+     <i class="fas fa-envelope"></i>
+   </a>
+   
+      
       <button onclick="alert('07 83 89 76 21')" class="text-white hover:text-blue-400">
         <i class="fas fa-phone"></i>
+        
       </button>
     </div>
   </div>
 
   <div class="mt-10"></div>
-  <h2 class="text-5xl font-extrabold animate-pulse">Bienvenue sur mon Portfolio</h2>
+  <div class="mt-10 text-center">
+    <h2 class="text-2xl md:text-4xl font-bold text-white max-w-3xl mx-auto whitespace-pre-wrap leading-relaxed">
+      <span id="typewriter"></span><span id="cursor" class="animate-blink">|</span>
+    </h2>
+  </div>
+  
   <p class="text-lg mt-4 max-w-2xl px-4">
     Je m'appelle Melvin, j'ai 20 ans, et je me forme au métier de développeur web à la Web@cadémie by Epitech.<br><br>
     J’ai découvert le code en cherchant à comprendre ce qu’il y avait derrière les sites que j’utilisais tous les jours.
@@ -82,16 +103,38 @@
         <h3 class="text-xl font-semibold mb-2">Puissance 4</h3>
         <img src="assets/Capture d’écran du 2025-03-20 15-28-20.png" alt=" " class="w-full h-48 object-cover cursor-pointer border-none" data-video="assets/Capture vidéo du 20-03-2025 15:20:04.webm">
         <p class="mt-2 text-gray-300">PUISSANCE 4 Site de jeu stratégique / Développé en 2 semaines / Projet individuel / JS, HTML et CSS .</p>
+        <p class="mt-2">
+          <a href="https://github.com/MelvinHirep/Puissance-4" target="_blank"
+             class="inline-flex items-center text-blue-400 hover:text-blue-300 transition">
+            <i class="fab fa-github mr-2"></i> Voir le code sur GitHub
+          </a>
+        </p>
+        
       </div>
+      
       <div class="project-card appear relative group overflow-hidden bg-gray-700 p-6 rounded-lg shadow-lg hover:scale-105 hover:bg-gray-600 transition-transform duration-300">
         <h3 class="text-xl font-semibold mb-2">Twitter</h3>
         <img src="assets/Capture d’écran du 2025-03-30 13-23-07.png" alt=" " class="w-full h-48 object-cover cursor-pointer" data-video="assets/Capture vidéo du 30-03-2025 13:16:54.webm">
         <p class="mt-2 text-gray-300">Réalisation des fonctionalités de twitter le plus identique possible Développé en 4 semaines / Projet de groupe / HTML, CSS, TAILWIND, PHP, JS.</p>
+        <p class="mt-2">
+          <a href="https://github.com/MelvinHirep/Tweet_academie" target="_blank"
+             class="inline-flex items-center text-blue-400 hover:text-blue-300 transition">
+            <i class="fab fa-github mr-2"></i> Voir le code sur GitHub
+          </a>
+        </p>
+        
       </div>
       <div class="project-card appear relative group overflow-hidden bg-gray-700 p-6 rounded-lg shadow-lg hover:scale-105 hover:bg-gray-600 transition-transform duration-300">
         <h3 class="text-xl font-semibold mb-2">Maquette</h3>
         <img src="assets/Capture d’écran du 2025-03-30 13-33-49.png" alt=" " class="w-full h-48 object-cover cursor-pointer" data-video="assets/Capture vidéo du 30-03-2025 13:34:55.webm">
         <p class="mt-2 text-gray-300">Reproduire maquette à l'identique Développé en 1 semaine / Projet individuel / HTML, CSS.</p>
+        <p class="mt-2">
+          <a href="https://github.com/MelvinHirep/Maquette" target="_blank"
+             class="inline-flex items-center text-blue-400 hover:text-blue-300 transition">
+            <i class="fab fa-github mr-2"></i> Voir le code sur GitHub
+          </a>
+        </p>
+        
       </div>
     </div>
   </div>

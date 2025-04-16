@@ -80,4 +80,27 @@
     }
   }
   
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  
+  .animate-blink {
+    animation: blink 1s step-start infinite;
+  }
+  
+  
+
+  #bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.25; /* Ajustable selon le contraste que tu veux */
+    pointer-events: none; /* pour que la vidéo ne bloque pas les clics */
+  }
+  
   
