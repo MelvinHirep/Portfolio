@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Sécuriser les données
+    
     $nom = htmlspecialchars(trim($_POST['nom']));
     $email = filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL);
     $message = htmlspecialchars(trim($_POST['message']));
