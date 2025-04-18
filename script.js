@@ -86,3 +86,17 @@ function typeWriter() {
 }
 
 window.addEventListener("DOMContentLoaded", typeWriter);
+
+const elements = document.querySelectorAll('[data-animate]');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.remove('opacity-0', 'translate-y-10');
+      }, index * 150); 
+    }
+  });
+}, { threshold: 0.2 });
+
+elements.forEach(el => observer.observe(el));
