@@ -103,20 +103,4 @@
     pointer-events: none; 
   }
   
-  @keyframes moveWaves {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-  
-  .animate-waves {
-    animation: moveWaves 8s linear infinite;
-  }
-  
-  .animate-waves-slower {
-    animation: moveWaves 16s linear infinite;
-  }
   
