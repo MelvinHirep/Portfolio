@@ -1,11 +1,21 @@
-function openVideo(videoSrc) {
+function openVideo(videoSrc, isMobileFix = false) {
     const video = document.getElementById('modalVideo');
+
     video.innerHTML = `
         <source src="${videoSrc}" type="video/mp4">
         <source src="${videoSrc.replace('.mp4', '.webm')}" type="video/webm">
         <source src="${videoSrc.replace('.mp4', '.ogg')}" type="video/ogg">
         Votre navigateur ne supporte pas la lecture de cette vidéo.
     `;
+
+    if (isMobileFix) {
+        video.setAttribute('playsinline', ''); 
+        video.classList.add('max-h-[60vh]'); 
+    } else {
+        video.removeAttribute('playsinline');
+        video.classList.remove('max-h-[60vh]');
+    }
+
     video.load();
     document.getElementById('videoModal').classList.remove('hidden');
 }
@@ -31,12 +41,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     projects.forEach(project => observer.observe(project));
 
-    document.querySelectorAll(".project-card img").forEach(img => {
-        img.addEventListener("click", () => {
-            const videoSrc = img.dataset.video;
-            if (videoSrc) openVideo(videoSrc);
-        });
+document.querySelectorAll(".project-card img").forEach(img => {
+    img.addEventListener("click", () => {
+        const videoSrc = img.dataset.video;
+        const isProject6 = img.dataset.project === "6";
+        if (videoSrc) openVideo(videoSrc, isProject6);
     });
+});
+
 
     emailjs.init("NWJA1HRiNVHeO0ag0");
 
